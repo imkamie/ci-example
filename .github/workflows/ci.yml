@@ -1,0 +1,11 @@
+name: build
+on: [push]
+
+jobs:
+  build:
+    name: ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - name: Building
+      run: mkdir build && cmake .. && make
+	
