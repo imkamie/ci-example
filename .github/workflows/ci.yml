@@ -12,7 +12,3 @@ jobs:
 
       - name: Building1
         run: cmake --build .
-
-      - name: Building2
-        run: mkdir build && cmake .. && make
-	
