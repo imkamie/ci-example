@@ -15,3 +15,6 @@ jobs:
 
       - name: Building1
         run: mkdir build && cd build && cmake .. && make
+
+      - name: Tests
+        run: mkdir tests && cd tests && cmake .. && make && ./runTests
