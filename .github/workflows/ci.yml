@@ -3,9 +3,16 @@ on: [push]
 
 jobs:
   build:
+
     name: ubuntu
     runs-on: ubuntu-latest
+
     steps:
-      - name: Building
+      - uses: actions/checkout@v2
+
+      - name: Building1
+      run: cmake --build .
+
+      - name: Building2
       run: mkdir build && cmake .. && make
 	
