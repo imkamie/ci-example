@@ -3,9 +3,18 @@ on: [push]
 
 jobs:
   build:
+
     name: ubuntu
     runs-on: ubuntu-latest
+
     steps:
-      - name: Building
-      run: mkdir build && cmake .. && make
-	
+      - uses: actions/checkout@v2
+
+      - name: Install GTest
+        run: sudo apt-get install libgtest-dev -y && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && cd lib && sudo cp *.a /usr/lib
+
+      - name: Building1
+        run: mkdir build && cd build && cmake .. && make
+
+      - name: Tests
+        run: mkdir tests && cd tests && cmake .. && make && ./runTests
